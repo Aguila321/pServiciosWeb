@@ -1,21 +1,40 @@
 package bean;
 
+/**
+ * Clase que Contiene los atributos de la tabla Item
+ * @author alex_
+ *
+ */
 public class Item {
 	
-	/* Identificador del Item */
+	// ATRIBUTOS
+	
+	/** Identificador del Item */
 	private int idItem;
-	/* Nombre del Item */
+	/** Nombre del Item */
 	private String nombreItem;
-	/* Precio del Item */
+	/** Precio del Item */
 	private int precioItem;
-	/* Tipo del Item */
+	/** Tipo del Item */
 	private TipoItem tipoItem;
-	/* Rareza del Item */
+	/** Rareza del Item */
 	private RarezaItem rarezaItem;
 	
+	// CONSTRUCTOR
+	
 	/**
-	 * Constructor 
-	 * @param idItem,nombreItem,precioItem,tipoItem,rarezaItem
+	 * Constructor de la clase sin parametros
+	 */
+	public Item() {
+		super();
+	}
+	/**
+	 * Constructor de la clase con parametros
+	 * @param idItem
+	 * @param nombreItem
+	 * @param precioItem
+	 * @param tipoItem
+	 * @param rarezaItem
 	 */
 	public Item(int idItem, String nombreItem, int precioItem, TipoItem tipoItem, RarezaItem rarezaItem) {
 		super();
@@ -25,7 +44,9 @@ public class Item {
 		this.tipoItem = tipoItem;
 		this.rarezaItem = rarezaItem;
 	}
+	
 	// GET - SET
+	
 	/**
 	 * Metodo que obtiene el Identificador del Item 
 	 * @return idItem identificador del item, tipo {@link Integer}
