@@ -71,12 +71,17 @@ Create Procedure usp_new_pass (
 p_pass varchar(50),
 p_email varchar(50))
 
-
+create table inventario(
+	idusuario int references usuario,
+    iditem int references item);
+    
 /*****************************Procedimiento Registrar*****************************/
 Insert Into tipoUser Values(1, 'Usuario');
 Insert Into tipoUser Value(2, 'Admin');
- 
+
+Insert Into inventario Values(1,1) ;
 Insert Into pais Values(1, 'Peru');
+
 
 DELIMITER $$
 Create Procedure usp_registrar_usuario (
@@ -96,9 +101,23 @@ Begin
 	end;
 END;
 call usp_registrar_usuario( 'Carlos','Carrion','Riverslul', '7261255xd','1999-11-07','carloscrivers@gmail.com', 1);
-call usp_registrar_usuario( 'Aaron','Aguilar','AaronDx', 'ciberaaron123','1999-12-07','aaronag@gmail.com', 1);
+call usp_registrar_usuario( 'Juan','Torres','TheKead', 'torres123','1999-12-07','torres@gmail.com', 7);
+
+
 insert  into usuario  (nombre,apellido,username,clave,fecnac,email,pavos,idpais, idtipo) values('admin', 'admin', 'admin', 'admin','1969-11-07','admin@epicgames.co', 0, 1, 2);
- 
+insert  into usuario  (nombre,apellido,username,clave,fecnac,email,pavos,idpais, idtipo) values('admin', 'admin', 'admin', 'admin','1969-11-07','admin@epicgames.co', 0, 1, 2);
+
+
+select * from Pais;
+Insert into Pais values(2,'Argentina');
+Insert into Pais values(3,'Brasil');
+Insert into Pais values(4,'Colombia');
+Insert into Pais values(5,'Mexico');
+Insert into Pais values(6,'Chile');
+Insert into Pais values(7,'Ecuador');
+
+select * from usuario;
+
 select curdate();
 
 insert into pavos values(1, '1000 v-Bucks', 1000, 9.99);
@@ -210,7 +229,7 @@ insert item values(null,'Lollipopper',800,4,3);
 insert item values(null,'Cutting Edge',800,4,3);
 insert item values(null,'Carrot Stick',800,4,3);
 insert item values(null,'Axeroni',800,4,3);
-insert item values(null,'Tendril',800,4,3)
+insert item values(null,'Tendril',800,4,3);
 
 /*Pickaxe-->Uncommon*/
 insert item values(null,'Ice Breaker',500,4,4);
@@ -234,7 +253,7 @@ insert item values(null,'Step it Up',500,5,3);
 insert item values(null,'Take The L',500,5,3);
 insert item values(null,'Tidy',500,5,3);
 insert item values(null,'Wiggle',500,5,3);
-insert item select(null,'Zany',500,5,3);
+insert item values(null,'Zany',500,5,3);
 
 /*Emote-->Uncommon*/
 insert item values(null,'Jubilation',200,5,4);
