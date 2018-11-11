@@ -64,7 +64,7 @@ public class ItemNegocio  implements ItemInterface{
 		
 		try {
 			con = MySQLConexion.getConexion();
-			String sql = "select * from tipo where id = ?";
+			String sql = "select * from tipo where idtipo = ?";
 			pst = con.prepareStatement(sql);
 			
 			pst.setInt(1, id);;
@@ -95,7 +95,7 @@ public class ItemNegocio  implements ItemInterface{
 		
 		try {
 			con = MySQLConexion.getConexion();
-			String sql = "select * from rarity where id = ?";
+			String sql = "select * from rarity where idrarity = ?";
 			pst = con.prepareStatement(sql);
 			
 			pst.setInt(1, id);;
