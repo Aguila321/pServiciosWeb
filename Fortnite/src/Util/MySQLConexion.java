@@ -11,7 +11,7 @@ public class MySQLConexion {
 		Connection con = null;
 		try{
 		Class.forName("com.mysql.jdbc.Driver"); //instanciamiento de la clase del driver
-		String url= "jdbc:mysql://localhost:3307/fornai";//variable String que contiene los datos del servidor
+		String url= "jdbc:mysql://localhost:3306/fornai";//variable String que contiene los datos del servidor
 		String usr= "root";//variable String que contiene el dato del usuario
 		String psw= "mysql";//variable String que contiene el dato del password
 		con = DriverManager.getConnection(url,usr,psw);// con este método se establece la conexión con el servidor

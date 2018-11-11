@@ -13,6 +13,18 @@ public class Item {
 	/* Rareza del Item */
 	private RarezaItem rarezaItem;
 	
+	/**
+	 * Constructor 
+	 * @param idItem,nombreItem,precioItem,tipoItem,rarezaItem
+	 */
+	public Item(int idItem, String nombreItem, int precioItem, TipoItem tipoItem, RarezaItem rarezaItem) {
+		super();
+		this.idItem = idItem;
+		this.nombreItem = nombreItem;
+		this.precioItem = precioItem;
+		this.tipoItem = tipoItem;
+		this.rarezaItem = rarezaItem;
+	}
 	// GET - SET
 	/**
 	 * Metodo que obtiene el Identificador del Item 
