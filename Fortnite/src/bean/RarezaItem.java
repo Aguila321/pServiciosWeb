@@ -63,7 +63,7 @@ public class RarezaItem {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
+	 
 	
 
 }
