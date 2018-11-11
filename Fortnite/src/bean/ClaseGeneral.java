@@ -22,6 +22,7 @@ public class ClaseGeneral {
 		this.tupapa = tupapa;
 	}
 
+	//Añadi un nuevo atributo
 	public int getMellegaslapinchoialexdemierda() {
 		return mellegaslapinchoialexdemierda;
 	}
