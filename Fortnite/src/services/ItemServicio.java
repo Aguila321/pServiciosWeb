@@ -10,14 +10,14 @@ import javax.ws.rs.core.MediaType;
 import bean.Item;
 import negocio.ItemNegocio;
 
-@Path("/item")
+@Path("/proyecto")
 public class ItemServicio {
 	//
 	ItemNegocio negocioItem = new ItemNegocio();
 	private static List<Item> listaItem=null;
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("json")
+	@Path("item")
 	public List<Item> listaJSON(){
 		
 		listaItem =  negocioItem.listaItem();

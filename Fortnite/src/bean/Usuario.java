@@ -24,7 +24,7 @@ public class Usuario {
 	/** Email del Usuario */
 	private String email;  
 	/** Cantidad de Pavos del Usuario */
-	private Pavos pavos;
+	private int pavos;
 	/** Pais del Usuario */
 	private Pais pais;
 	/** Tipo de Usuario */
@@ -52,7 +52,7 @@ public class Usuario {
 	 * @param idtipo
 	 */
 	public Usuario(int iduser, String nombre, String apellido, String username, String clave, String fecnac,
-			String email, Pavos pavos, Pais pais, TipoUsuario tipo) {
+			String email, int pavos, Pais pais, TipoUsuario tipo) {
 		super();
 		this.iduser = iduser;
 		this.nombre = nombre;
@@ -170,22 +170,20 @@ public class Usuario {
 	 * Metodo que obtiene la Cantidad de Pavos del Usuario
 	 * @return pavos cantidad de pavos del usuario, tipo {@link Pavos}
 	 */
-	public Pavos getPavos() {
-		return pavos;
+	
+	public Pais getPais() {
+		return pais;
 	}
-	/**
-	 * Metodo que envia la Cantidad de Pavos del Usuario
-	 * @param pavos cantidad de pavos del usuario, tipo {@link Pavos}
-	 */
-	public void setPavos(Pavos pavos) {
-		this.pavos = pavos;
+	public int getPavos() {
+		return pavos;
 	}
 	/**
 	 * Metodo que obtiene el Pais del Usuario
 	 * @return pais pais del usuario, tipo {@link Pais}
 	 */
-	public Pais getPais() {
-		return pais;
+	
+	public void setPavos(int pavos) {
+		this.pavos = pavos;
 	}
 	/**
 	 * Metodo que envia el Pais del Usuario
