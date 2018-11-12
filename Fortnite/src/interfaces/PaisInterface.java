@@ -5,10 +5,10 @@ import bean.Pais;
 
 /**
  * Interface que contiene los metodos de programacion de la Clase Pais
- * @author alex_
+ * @author alex_ ()
  *
  */
-public interface PaisService {
+public interface PaisInterface {
 	
 	/**
 	 * Metodo que Lista los paises

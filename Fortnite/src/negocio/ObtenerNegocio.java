@@ -3,9 +3,12 @@ package negocio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 
 import Util.MySQLConexion;
+import bean.OrdenPedido;
 import bean.Pais;
+import bean.Pavos;
 import bean.RarezaItem;
 import bean.TipoItem;
 import bean.TipoUsuario;
@@ -104,5 +107,76 @@ public class ObtenerNegocio implements ObtenerInterface{
 		}
 
 		return pais;
+	}
+
+	@Override
+	public Pavos obtenerPavos(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		Pavos pavos = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "select * from pavos where idpavo = ?";
+			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, id);
+			;
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				pavos = new Pavos(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("error en el obtener pavos");
+			e.printStackTrace();
+		} finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+
+		return pavos;
+	}
+
+	@Override
+	public OrdenPedido obtenerPedido(int id) {
+		// TODO Auto-generated method stub
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		OrdenPedido ordenPedido = null;
+		
+		/*Dar formato la fecha*/
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
+		
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "select * from orden_pedido where idpedido = ?";
+			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, id);
+			
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				ordenPedido = new OrdenPedido(rs.getInt(1),rs.getString(2),obtenerUsuario(rs.getInt(3)));
+				
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("error en el obtener obtenerPedido");
+			e.printStackTrace();
+		} finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+
+		return ordenPedido;
 	}
 }

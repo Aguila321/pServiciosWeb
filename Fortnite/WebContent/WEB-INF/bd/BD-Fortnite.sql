@@ -76,11 +76,12 @@ create table inventario(
     iditem int references item);
     
 /*****************************Procedimiento Registrar*****************************/
-Insert Into tipoUser Values(1, 'Usuario');
-Insert Into tipoUser Value(2, 'Admin');
+    
+insert into tipoUser values(1, 'Usuario');
+insert into tipoUser values(2, 'Admin');
 
-Insert Into inventario Values(1,1) ;
-Insert Into pais Values(1, 'Peru');
+insert into inventario values(1,1) ;
+insert into pais values(1, 'Peru');
 
 
 DELIMITER $$
@@ -100,12 +101,13 @@ Begin
 		values (p_nombre,p_apellido,p_username,p_clave,p_fec,p_email,v_pavos,p_idpa, v_tipousaurio); 
 	end;
 END;
+
 call usp_registrar_usuario( 'Carlos','Carrion','Riverslul', '7261255xd','1999-11-07','carloscrivers@gmail.com', 1);
 call usp_registrar_usuario( 'Juan','Torres','TheKead', 'torres123','1999-12-07','torres@gmail.com', 7);
 
 
-insert  into usuario  (nombre,apellido,username,clave,fecnac,email,pavos,idpais, idtipo) values('admin', 'admin', 'admin', 'admin','1969-11-07','admin@epicgames.co', 0, 1, 2);
-insert  into usuario  (nombre,apellido,username,clave,fecnac,email,pavos,idpais, idtipo) values('admin', 'admin', 'admin', 'admin','1969-11-07','admin@epicgames.co', 0, 1, 2);
+insert  into usuario values (nombre,apellido,username,clave,fecnac,email,pavos,idpais, idtipo) values('admin', 'admin', 'admin', 'admin','1969-11-07','admin@epicgames.co', 0, 1, 2);
+insert  into usuario values (nombre,apellido,username,clave,fecnac,email,pavos,idpais, idtipo) values('admin', 'admin', 'admin', 'admin','1969-11-07','admin@epicgames.co', 0, 1, 2);
 
 
 select * from Pais;
@@ -377,3 +379,25 @@ begin
 
 end;
 delimiter ;
+
+/**********************************/
+
+/*La compra pavos , Detalle*/
+select * from usuario;
+select * from orden_pedido;
+select * from tb_orden_pedido_detalle;
+select * from pavos;
+
+/* Insert en duro */
+
+insert orden_pedido values (1,curdate(),1); 
+insert orden_pedido values (2,curdate(),2); 
+insert orden_pedido values (3,curdate(),3); 
+insert orden_pedido values (4,curdate(),4); 
+insert orden_pedido values (5,curdate(),1); 
+
+
+call usp_compra_detalle (2,2,2500,24.9);
+call usp_compra_detalle (3,3,6000,59.9);
+call usp_compra_detalle (4,4,10000,99.9);
+call usp_compra_detalle (5,1,1500,9.9);

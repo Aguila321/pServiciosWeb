@@ -134,6 +134,7 @@ public class ItemNegocio  implements ItemInterface{
 				Item i = new Item(rs.getInt(1),rs.getString(2), rs.getInt(3),obtenerTipoItem(rs.getInt(4)) , obtenerRareza(rs.getInt(5)));
 				
 				lista.add(i);
+				System.out.println(lista);
 			}
 			
 			System.out.println(lista);
