@@ -333,7 +333,7 @@ Begin
 	where oi.idcompra = p_idcompra; 
 END IF;
 End;
-DELIMITER ;
+
 
 	/*****************************Procedimiento RecuperarContraseña*****************************/
 	
